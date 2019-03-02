@@ -1,12 +1,18 @@
-import React from "react";
-import { Text, View } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+import Home from "./components/screens/Home";
+
+const Navigator = createStackNavigator(
+  {
+    Home: { screen: Home }
+  },
+  {
+    initialRouteName: "Home",
+    headerMode: "none",
+    navigationOptions: { swipeEnabled: true, gesturesEnabled: true }
   }
-}
+);
+
+const App = createAppContainer(Navigator);
+
+export default App;
